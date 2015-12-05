@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    
+    xmlns:tools="http://schemas.android.com/tools"
+    android:baselineAligned="true" 
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout 
+	    android:id="@+id/listDividerLayout"
+	    android:layout_width="match_parent"
+	    android:background="@color/darkGray"
+	    android:orientation="horizontal"
+		android:layout_height="55dip">
+       
+   	    <Button
+	       android:id="@+id/takePicture"
+	       android:layout_width="wrap_content"
+	       android:layout_height="match_parent"
+	       android:text="@string/takeThePicture" />
+   	    
+	    <LinearLayout 
+		    android:id="@+id/dividerForItems"
+		    android:layout_toEndOf="@+id/takePicture"
+   	        android:layout_toRightOf="@+id/takePicture"
+		    android:background="@color/darkGray"
+		    android:orientation="horizontal"
+		    android:layout_width="15dip"
+			android:layout_height="match_parent">
+       
+   	    </LinearLayout>
+   	    
+   	    <TextView
+   	        android:id="@+id/theTotal"
+   	        android:layout_toEndOf="@+id/dividerForItems"
+   	        android:layout_toRightOf="@+id/dividerForItems"
+   	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+   	    </TextView>
+   	    
+     </RelativeLayout>
+		
+    <LinearLayout
+	    android:id="@+id/theListMainLayout"
+	    android:background="@color/black"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center_horizontal"
+	    android:baselineAligned="false"
+	    android:orientation="horizontal" >
+	    
+		<SurfaceView
+	    	android:id="@+id/surfaceOfPicture"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+        </SurfaceView>
+        
+    </LinearLayout>
+    
+</LinearLayout>    
+
+<!-- 
+	     <Button
+        android:id="@+id/takePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/takeThePicture" />
+        
+
+
+ -->
+<!-- 
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="tran.calculatetipsocr.MainScreen" >
+
+
+
+
+    <Button
+        android:id="@+id/takePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/description"
+        android:layout_alignStart="@+id/description"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="14dp"
+        android:text="@string/takeThePicture" />
+
+</RelativeLayout>
+
+-->

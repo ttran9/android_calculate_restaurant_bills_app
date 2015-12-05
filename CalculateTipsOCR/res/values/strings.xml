@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CalculateTipsOCR</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_description">Below is the preview of the receipt.</string>
+    <string name="takeThePicture">Take Picture!</string>
+    <string name="numPayers">Number of People Paying </string>
+    <string name="percentTip">Tip Amount </string>
+    
+    <string name="numPayersOne">One</string>
+    <string name="numPayersTwo">Two</string>
+    <string name="numPayersThree">Three</string>
+    <string name="numPayersFour">Four</string>
+    <string name="numPayersFive">Five</string>
+    <string name="otherNumPayers">Other Number of Payers</string>
+
+    <string name="tipOne">10%</string>
+    <string name="tipTwo">15%</string>
+    <string name="tipThree">20%</string>
+    <string name="tipFour">25%</string>
+    <string name="tipFive">30%</string>
+    <string name="otherAmount">Other Amount</string>
+
+</resources>

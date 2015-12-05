@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <item name="black" type ="color">#000000</item> <!-- for quantityandNameDividerOne (layout) separator in grocery_item_quantity_and_name.xml  -->
+        <item name="darkGray" type = "color">#717171</item>
+        <item name="darker_light_blue" type = "color">#263A48</item> <!-- for linearlayout of the section item xml and list items divider -->
+        <item name="beigeBackGround" type="color">#F5F5DC</item> <!-- Background color of the add and subtract activities -->
+</resources>

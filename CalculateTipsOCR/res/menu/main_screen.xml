@@ -1,0 +1,55 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="tran.calculatetipsocr.MainScreen" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/action_settings">
+    
+ 		<menu>
+		    <item android:id="@+id/menu1" 
+		        android:alphabeticShortcut="a"
+			    android:title="@string/numPayers" 
+			    android:showAsAction="ifRoom"
+			    android:orderInCategory="1">
+			        <menu>
+				    <group android:id="@+id/group1" android:checkableBehavior="single">
+					    <item android:id="@+id/numPayOne" android:title="@string/numPayersOne" />
+					    <item android:id="@+id/numPayTwo" android:title="@string/numPayersTwo" />
+					    <item android:id="@+id/numPayThree" android:title="@string/numPayersThree" />
+					    <item android:id="@+id/numPayFour" android:title="@string/numPayersFour" />
+					    <item android:id="@+id/numPayFive" android:title="@string/numPayersFive" />
+					    <item android:id="@+id/numPayOther" android:title="@string/otherNumPayers" />
+				    </group>   
+			    </menu>
+			</item>
+		  	<item android:id="@+id/menu2" 
+		  	    android:alphabeticShortcut="b"
+			    android:title="@string/percentTip" 
+			    android:showAsAction="ifRoom"
+			    android:orderInCategory="2">
+			    <menu>
+				    <group android:id="@+id/group2" android:checkableBehavior="single">
+					    <item android:id="@+id/tipOne" android:title="@string/tipOne" />
+					    <item android:id="@+id/tipTwo" android:title="@string/tipTwo" />
+					    <item android:id="@+id/tipThree" android:title="@string/tipThree" />
+					    <item android:id="@+id/tipFour" android:title="@string/tipFour" />
+					    <item android:id="@+id/tipFive" android:title="@string/tipFive" />
+					    <item android:id="@+id/tipOther" android:title="@string/otherAmount" />
+				    </group>   
+			    </menu>
+		   	</item>
+	   	</menu>
+	</item>
+
+</menu>
+
+<!-- 
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+ -->
