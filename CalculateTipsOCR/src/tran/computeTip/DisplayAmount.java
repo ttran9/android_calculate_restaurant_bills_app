@@ -21,8 +21,7 @@ public class DisplayAmount {
 	 * @return A string with the amount to pay
 	 */
 	public String practiceParser(String s_StringToParse, int i_NumberOfPayers, double d_tipPercentage) {
-		//String s_firstReceiptPattern = "Total (.*)";
-		String s_firstReceiptPattern = "T(.)ta(.) (.*)";
+		String s_firstReceiptPattern = "^\\w{5} \\d{2}\\.\\d{2}$";
 		
 		String[] sa_parsedStringContents = s_StringToParse.split("\n");
 		
@@ -39,6 +38,8 @@ public class DisplayAmount {
 			}
 		}
 		
+		if(s_totalBeforeTip.length() == 0)
+			return "Sorry, you must re-take the picture and make sure it is clearer.";
 		BigDecimal bd_roundTip = new BigDecimal(d_TheAmountToAppend * (d_tipPercentage / 100));
 		bd_roundTip = bd_roundTip.setScale(2, RoundingMode.CEILING);
 		

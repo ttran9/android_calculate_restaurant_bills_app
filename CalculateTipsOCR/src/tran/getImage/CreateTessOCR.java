@@ -200,27 +200,18 @@ public class CreateTessOCR {
 		@Override
 		protected String doInBackground(Void... params) 
 		{
-			return readFromOnlineFile();
-			//return refactorImageTaken();
+			//return readFromOnlineFile();
+			return refactorImageTaken();
 		}
 		
 		@Override
 	    protected void onPostExecute(String result) 
 		{
-			// display the text data.
-		  	//Toast.makeText(c_MainActivityContext, result, Toast.LENGTH_SHORT).show();
-		  	// parse stuff from this text after printing it...
-		  	//dialog.dismiss();
-			
-			// first select number of people paying and the tax %.
-			// dialog 1 (amount of people paying)
-			
-			// dialog 2 (tip %)
-			
+			// email the image taken to the user.
+			emailTheReceipt(result);
 			// compute the amount to pay.
 			DisplayAmount da_computeCost = new DisplayAmount();
 			String amountToTip = da_computeCost.practiceParser(result, MainScreen.i_numPayers, MainScreen.d_tipPercentAmount);
-			
 			// display the total
 			MainScreen.tv_theTotal.setText(amountToTip);
 			dialog.dismiss();
@@ -270,7 +261,7 @@ public class CreateTessOCR {
 			BitmapFactory.Options options = new BitmapFactory.Options();
 			options.inJustDecodeBounds = true;
 			BitmapFactory.decodeByteArray(ba_ArrayOfImage, 0, ba_ArrayOfImage.length, options);
-			String imageType = options.outMimeType;
+			//String imageType = options.outMimeType;
 			options.inSampleSize = 2;
 			options.inJustDecodeBounds = false;
 			Bitmap bm_scaledPicture = BitmapFactory.decodeByteArray(ba_ArrayOfImage, 0, ba_ArrayOfImage.length, options);
@@ -281,13 +272,8 @@ public class CreateTessOCR {
 			bm_scaledPicture.recycle();
 			
 			saveTheReceiptScaled(bm_rotatedPicture); // save the receipt so the image can be emailed to the user.
-		
-		    // for now not emailing the receipt to the user.
-			emailTheReceipt();
-			
-			// get text for postExecute() to print to the user the total
+			// get text for postExecute() to print to the user the total			
 			return getTextFromImage(bm_rotatedPicture);
-			
 		}
 		
 		/**
@@ -300,8 +286,8 @@ public class CreateTessOCR {
 		  	
 		  	tbp_tesserActObjectbaseApi.setImage(bm_thePicture);
 		  	
-		  	tbp_tesserActObjectbaseApi.setPageSegMode(PageSegMode.PSM_AUTO_OSD);
-		  	//tbp_tesserActObjectbaseApi.setPageSegMode(PageSegMode.PSM_AUTO);
+		  	//tbp_tesserActObjectbaseApi.setPageSegMode(PageSegMode.PSM_AUTO_OSD);
+		  	tbp_tesserActObjectbaseApi.setPageSegMode(PageSegMode.PSM_AUTO);
 		  	
 		    String s_textFromPicture = tbp_tesserActObjectbaseApi.getUTF8Text();
 		    bm_thePicture.recycle();
@@ -333,15 +319,15 @@ public class CreateTessOCR {
 		/**
 		 * helper function to email the receipt if the user chooses to do so.
 		 */
-		public void emailTheReceipt() {
+		public void emailTheReceipt(String s_OCRfromReceipt) {
 			File f_thePicture = new File(s_theReceiptDir, "/your_Receipt.jpg"); // the image file.
 
 			Intent i_emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
 			i_emailIntent.setType("image/jpg");
-			// emailing to myself to show the image.
 			i_emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"toddtran9@gmail.com"}); 
 			i_emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Image From Tessteract Android App"); 
-			i_emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "An image of your receipt is attached below"); 
+			//i_emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "An image of your receipt is attached below"); 
+			i_emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, s_OCRfromReceipt);
 			i_emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f_thePicture));
 			c_MainActivityContext.startActivity(i_emailIntent);
 
